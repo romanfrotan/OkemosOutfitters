@@ -52,7 +52,7 @@
         <tbody>
         <tr th:each="tempPart : ${parts}">
             <td th:text="${tempPart.name}">1</td>
-            <td th:text="${tempPart.price}">1</td>
+            <td th:text="${#numbers.formatCurrency(tempPart.price)}">1</td>
             <td th:text="${tempPart.inv}">1</td>
             <td th:text="${tempPart.minInventory}">1</td>
             <td th:text="${tempPart.maxInventory}">1</td>
@@ -93,7 +93,7 @@
         <tbody>
         <tr th:each="tempProduct : ${products}">
             <td th:text="${tempProduct.name}">1</td>
-            <td th:text="${tempProduct.price}">1</td>
+            <td th:text="${#numbers.formatCurrency(tempProduct.price)}">1</td>
             <td th:text="${tempProduct.inv}">1</td>
 
 
