@@ -39,7 +39,7 @@ public class AddProductController {
             if(!product.getParts().contains(p))availParts.add(p);
         }
         theModel.addAttribute("availparts",availParts);
-        theModel.addAttribute("assparts",product.getParts());
+        theModel.addAttribute("aparts",product.getParts());
         return "productForm";
     }
 
@@ -56,12 +56,10 @@ public class AddProductController {
                 if(!product2.getParts().contains(p))availParts.add(p);
             }
             theModel.addAttribute("availparts",availParts);
-            theModel.addAttribute("assparts",product2.getParts());
+            theModel.addAttribute("asparts",product2.getParts());
             return "productForm";
         }
- //       theModel.addAttribute("assparts", assparts);
- //       this.product=product;
-//        product.getParts().addAll(assparts);
+
         else {
             ProductService repo = context.getBean(ProductServiceImpl.class);
             if(product.getId()!=0) {
@@ -89,10 +87,9 @@ public class AddProductController {
         ProductService repo = context.getBean(ProductServiceImpl.class);
         Product theProduct = repo.findById(theId);
         product1=theProduct;
-    //    this.product=product;
-        //set the employ as a model attibute to prepopulate the form
+
         theModel.addAttribute("product", theProduct);
-        theModel.addAttribute("assparts",theProduct.getParts());
+        theModel.addAttribute("aparts",theProduct.getParts());
         List<Part>availParts=new ArrayList<>();
         for(Part p: partService.findAll()){
             if(!theProduct.getParts().contains(p))availParts.add(p);
@@ -136,7 +133,7 @@ public class AddProductController {
         productService.save(product1);
         partService.save(partService.findById(theID));
         theModel.addAttribute("product", product1);
-        theModel.addAttribute("assparts",product1.getParts());
+        theModel.addAttribute("aparts",product1.getParts());
         List<Part>availParts=new ArrayList<>();
         for(Part p: partService.findAll()){
             if(!product1.getParts().contains(p))availParts.add(p);
@@ -155,7 +152,7 @@ public class AddProductController {
         productService.save(product1);
         partService.save(partService.findById(theID));
         theModel.addAttribute("product", product1);
-        theModel.addAttribute("assparts",product1.getParts());
+        theModel.addAttribute("aparts",product1.getParts());
         List<Part>availParts=new ArrayList<>();
         for(Part p: partService.findAll()){
             if(!product1.getParts().contains(p))availParts.add(p);

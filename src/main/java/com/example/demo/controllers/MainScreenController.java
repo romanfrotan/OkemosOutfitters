@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @Controller
-public class MainScreenControllerr {
+public class MainScreenController {
 
 
     private PartService partService;
@@ -24,7 +24,7 @@ public class MainScreenControllerr {
     private List<Product> theProducts;
 
 
-    public MainScreenControllerr(PartService partService,ProductService productService){
+    public MainScreenController(PartService partService, ProductService productService){
         this.partService=partService;
         this.productService=productService;
     }
